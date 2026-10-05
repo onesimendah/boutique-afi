@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1c2033;
+  --color-muted: #5d6275;
+  --color-line: #dde0e8;
+  --color-paper: #f7f8fb;
+  --color-indigo: #2b3a7a;
+  --color-indigo-dark: #1f2b5e;
+  --color-palm: #2f6e4f;
+  --color-mustard: #e3a92b;
+  --color-danger: #b4362f;
+
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+  --font-sans: var(--font-source), system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-indigo);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-indigo text-white hover:bg-indigo-dark;
+}
+@utility btn-ghost {
+  @apply btn border border-line bg-white text-ink hover:border-ink;
+}
+@utility input {
+  @apply w-full rounded-md border border-line bg-white px-3 py-2 outline-none focus:border-indigo;
+}
