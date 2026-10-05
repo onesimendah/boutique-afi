@@ -1,10 +1,17 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import type { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "./CartProvider";
 import { QuantityStepper } from "./QuantityStepper";
+
+const CATEGORY_COLORS: Record<string, string> = {
+  "Épicerie": "bg-mustard text-ink",
+  "Petit-déjeuner": "bg-palm text-white",
+  "Entretien": "bg-indigo text-white",
+  "Boissons": "bg-violet-700 text-white",
+};
 
 export function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -98,6 +105,14 @@ export function ProductList() {
               const soldOut = product.stock === 0;
               return (
                 <li key={product.id} className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3">
+                  <span
+                    aria-hidden="true"
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md font-display text-lg font-bold ${
+                      CATEGORY_COLORS[product.category] ?? "bg-line text-ink"
+                    }`}
+                  >
+                    {product.name[0]}
+                  </span>
                   <div className="min-w-0 flex-1 basis-48">
                     <p className="font-semibold">{product.name}</p>
                     <p className="text-sm text-muted">
