@@ -2,7 +2,7 @@
 
 Mini application de commande en ligne pour une petite boutique de quartier : catalogue, panier, compte client et suivi des commandes.
 
-Démo : _lien Vercel_
+Démo :https://boutique-afi.vercel.app
 
 ## Fonctionnalités
 
@@ -63,12 +63,12 @@ Les erreurs sont toujours renvoyées sous la forme `{ error, details? }` avec le
 Prérequis : Node 20+ et une base PostgreSQL (une base gratuite sur [Neon](https://neon.tech) suffit).
 
 ```bash
-git clone <url-du-depot>
+git clone https://github.com/onesimendah/boutique-afi.git
 cd boutique-afi
 npm install
 cp .env.example .env      # puis remplir DATABASE_URL et JWT_SECRET
 npm run db:push           # crée les tables
-npm run db:seed           # ajoute les produits
+npm run db:seed           # réinitialise les produits (efface aussi les commandes)
 npm run dev
 ```
 
